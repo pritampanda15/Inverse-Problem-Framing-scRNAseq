@@ -146,6 +146,8 @@ class InferenceGuide(nn.Module):
         """
         if library_sizes is None:
             library_sizes = X_obs.sum(dim=1, keepdim=True)
+        elif library_sizes.dim() == 1:
+            library_sizes = library_sizes.unsqueeze(1)
 
         # Log1p + library size normalization
         X_normalized = torch.log1p(

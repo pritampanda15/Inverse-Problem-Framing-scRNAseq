@@ -1,0 +1,136 @@
+leiden_inverse
+7    0.162159
+2    0.183316
+3    0.186600
+1    0.192544
+5    0.192629
+0    0.194284
+4    0.195587
+6    0.199623
+8    0.202669
+Name: cluster_confidence, dtype: float64
+2026-01-09 06:57:15,655 - INFO - Saved uncertainty plot to results/uncertainty_analysis.png
+2026-01-09 06:57:15,655 - INFO - Interpreting learned programs...
+2026-01-09 06:57:15,657 - INFO - Program 0: top gene = S100A11
+2026-01-09 06:57:15,657 - INFO - Program 1: top gene = TMSB4X
+2026-01-09 06:57:15,658 - INFO - Program 2: top gene = MALAT1
+2026-01-09 06:57:15,659 - INFO - Program 3: top gene = RPL10
+2026-01-09 06:57:15,660 - INFO - Program 4: top gene = TMSB4X
+2026-01-09 06:57:15,660 - INFO - Program 5: top gene = MALAT1
+2026-01-09 06:57:15,661 - INFO - Program 6: top gene = MALAT1
+2026-01-09 06:57:15,662 - INFO - Program 7: top gene = MALAT1
+2026-01-09 06:57:15,662 - INFO - Program 8: top gene = TMSB4X
+2026-01-09 06:57:15,663 - INFO - Program 9: top gene = MALAT1
+2026-01-09 06:57:15,664 - INFO - Program 10: top gene = TMSB4X
+2026-01-09 06:57:15,664 - INFO - Program 11: top gene = MALAT1
+2026-01-09 06:57:15,665 - INFO - Program 12: top gene = S100A8
+2026-01-09 06:57:15,666 - INFO - Program 13: top gene = MALAT1
+2026-01-09 06:57:15,666 - INFO - Program 14: top gene = MALAT1
+
+==================================================
+TOP GENES PER PROGRAM (filtered)
+==================================================
+
+=== Program 0 (top: S100A11) ===
+   gene  loading
+S100A11 1.224507
+   SAT1 1.205795
+    LYZ 1.172155
+   AIF1 1.154185
+ S100A6 1.134790
+ IFITM3 1.110613
+ S100A8 1.099335
+   LST1 1.090365
+ S100A4 1.078831
+  COTL1 1.054363
+
+=== Program 1 (top: TPT1) ===
+gene  loading
+TPT1 0.569324
+PTMA 0.559360
+JUNB 0.502384
+
+=== Program 2 (top: LTB) ===
+gene  loading
+ LTB 0.747518
+CCL5 0.643235
+IL32 0.546254
+ JUN 0.543644
+
+=== Program 3 (top: LTB) ===
+gene  loading
+ LTB 0.787464
+IL32 0.709709
+NKG7 0.654973
+TPT1 0.560780
+
+=== Program 4 (top: NKG7) ===
+gene  loading
+NKG7 0.411391
+JUNB 0.396470
+TPT1 0.387904
+GNLY 0.366944
+PTMA 0.362908
+2026-01-09 06:57:16,335 - INFO - Saved program activity plot to results/program_activity.png
+2026-01-09 06:57:16,335 - INFO - Annotating cell types using known markers...
+2026-01-09 06:57:16,335 - INFO - Available marker sets: ['CD4+ T', 'CD8+ T', 'Naive T', 'Memory T', 'NK', 'B', 'CD14+ Mono', 'FCGR3A+ Mono', 'DC', 'Platelet']
+
+======================================================================
+CELL TYPE ANNOTATION COMPARISON
+======================================================================
+
+--- Standard Pipeline Clusters ---
+  Cluster 0: Memory T (619 cells)
+  Cluster 1: Memory T (536 cells)
+  Cluster 2: CD14+ Mono (403 cells)
+  Cluster 3: B (348 cells)
+  Cluster 4: Memory T (322 cells)
+  Cluster 5: Memory T (248 cells)
+  Cluster 6: NK (158 cells)
+  Cluster 7: DC (52 cells)
+  Cluster 8: Platelet (14 cells)
+
+--- Inverse Problem Clusters ---
+  Cluster 0: Memory T (678 cells)
+  Cluster 1: Memory T (485 cells)
+  Cluster 2: CD14+ Mono (478 cells)
+  Cluster 3: B (347 cells)
+  Cluster 4: NK (308 cells)
+  Cluster 5: Memory T (185 cells)
+  Cluster 6: Memory T (174 cells)
+  Cluster 7: DC (32 cells)
+  Cluster 8: Platelet (13 cells)
+
+--- Cell Type Summary ---
+
+Cell Type                 Standard        Inverse         Difference     
+----------------------------------------------------------------------
+B                         348             347             -1             
+CD14+ Mono                403             478             +75            
+DC                        52              32              -20            
+Memory T                  1725            1522            -203           
+NK                        158             308             +150           
+Platelet                  14              13              -1             
+
+--- Key Findings ---
+
+--- Cluster Granularity by Cell Type ---
+2026-01-09 06:57:16,634 - INFO - Generating annotated comparison plots...
+... storing 'celltype_standard' as categorical
+... storing 'celltype_inverse' as categorical
+2026-01-09 06:57:17,127 - INFO - Saved annotated comparison to results/annotated_comparison.png
+2026-01-09 06:57:17,767 - INFO - Saved marker dotplot to results/marker_dotplot_comparison.png
+
+==================================================
+ANALYSIS SUMMARY
+==================================================
+Cells: 2700
+Genes: 32738
+Clusters (standard): 9
+Clusters (inverse): 9
+Mean cluster confidence: 0.191
+Confidence range: 0.032 - 0.225
+Low confidence cells (bottom 25%): 675 (threshold: 0.186)
+==================================================
+2026-01-09 06:57:17,768 - INFO - Analysis complete!
+

@@ -28,6 +28,7 @@ def fit_inverse_model(
     use_cuda: bool = False,
     layer: Optional[str] = None,
     copy: bool = False,
+    n_posterior_samples: int = 50,
     **kwargs,
 ) -> Optional[AnnData]:
     """
@@ -58,6 +59,8 @@ def fit_inverse_model(
         Which layer to use (None = .X, 'raw' = .raw.X)
     copy : bool
         Return copy instead of modifying in-place
+    n_posterior_samples : int
+        Number of posterior samples for prediction (fewer=faster, default=50)
     **kwargs
         Additional arguments for measurement model
 
@@ -154,11 +157,11 @@ def fit_inverse_model(
     )
 
     # Predict posterior
-    logger.info("Computing posterior predictions...")
+    logger.info(f"Computing posterior predictions ({n_posterior_samples} samples)...")
     predictions = trainer.predict(
         X_obs=X,
         library_sizes=library_sizes,
-        n_samples=100,
+        n_samples=n_posterior_samples,
     )
 
     # Store results in adata

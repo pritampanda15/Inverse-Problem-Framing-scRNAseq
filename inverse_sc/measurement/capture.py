@@ -69,6 +69,7 @@ class CaptureModel(nn.Module):
         Z_true: torch.Tensor,
         gene_features: Optional[torch.Tensor] = None,
         cell_features: Optional[torch.Tensor] = None,
+        cell_indices: Optional[torch.Tensor] = None,
     ) -> Tuple[torch.Tensor, torch.Tensor]:
         """
         Compute capture probabilities and simulate capture.
@@ -81,6 +82,8 @@ class CaptureModel(nn.Module):
             Gene-level features (e.g., GC content, length)
         cell_features : Optional[torch.Tensor]
             Cell-level features (e.g., size, quality metrics)
+        cell_indices : Optional[torch.Tensor]
+            Indices of cells in current batch (for mini-batching)
 
         Returns
         -------
@@ -96,7 +99,12 @@ class CaptureModel(nn.Module):
 
         # Add cell-specific effects
         if self.use_cell_features:
-            logit = logit + self.cell_capture_logit.unsqueeze(1)
+            if cell_indices is not None:
+                # Mini-batching: select cell-specific parameters for batch
+                cell_logit = self.cell_capture_logit[cell_indices]
+            else:
+                cell_logit = self.cell_capture_logit[:n_cells]
+            logit = logit + cell_logit.unsqueeze(1)
 
         capture_prob = torch.sigmoid(logit)
 

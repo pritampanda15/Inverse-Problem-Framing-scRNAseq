@@ -138,6 +138,7 @@ class InverseModel(nn.Module):
             X_expected = self.measurement_operator(
                 Z_true,
                 library_sizes=library_sizes,
+                cell_indices=cell_indices,
             )
 
             # Observation model: X ~ Poisson(X_expected)

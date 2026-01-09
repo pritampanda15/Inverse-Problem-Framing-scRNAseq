@@ -194,9 +194,10 @@ Yes! Just treat spatial coordinates as additional cell features. Future versions
 ## Learn More
 
 - **Notebooks**: See `notebooks/` for detailed examples
+- **Scripts**: See `scripts/` for run time examples on pbmc3k
 - **API Reference**: See `docs/API_REFERENCE.md`
 - **Methodology**: See `docs/METHODOLOGY.md` for mathematical details
-- **GitHub**: [inverse-problem-scrna](https://github.com/yourusername/inverse-problem-scrna)
+- **GitHub**: [inverse-problem-scrna](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq)
 
 ## Citation
 

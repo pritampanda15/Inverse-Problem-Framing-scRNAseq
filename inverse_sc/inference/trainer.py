@@ -132,8 +132,8 @@ class InverseTrainer:
                 X_batch = X_tensor[batch_indices]
                 lib_batch = lib_tensor[batch_indices] if lib_tensor is not None else None
 
-                # SVI step
-                loss = self.svi.step(X_batch, lib_batch)
+                # SVI step - pass batch_indices for cell-specific parameters
+                loss = self.svi.step(X_batch, lib_batch, batch_indices)
 
                 epoch_loss += loss
                 n_batches += 1
@@ -173,6 +173,7 @@ class InverseTrainer:
         from pyro.infer import Predictive
 
         # Convert to tensors
+        n_cells = X_obs.shape[0]
         X_tensor = torch.from_numpy(X_obs).float().to(self.device)
         lib_tensor = None
         if library_sizes is not None:
@@ -184,8 +185,11 @@ class InverseTrainer:
             num_samples=n_samples,
         )
 
+        # Create cell indices for full dataset
+        cell_indices = torch.arange(n_cells).to(self.device)
+
         with torch.no_grad():
-            samples = predictive(X_tensor, lib_tensor)
+            samples = predictive(X_tensor, lib_tensor, cell_indices)
 
         # Extract samples
         Z_true_samples = samples['Z_true'].cpu().numpy()  # (n_samples, n_cells, n_genes)

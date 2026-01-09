@@ -71,6 +71,7 @@ class MeasurementOperator(nn.Module):
         Z_true: torch.Tensor,
         library_sizes: Optional[torch.Tensor] = None,
         return_intermediates: bool = False,
+        cell_indices: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         """
         Forward model: True biology → Observed counts.
@@ -83,6 +84,8 @@ class MeasurementOperator(nn.Module):
             Sequencing depth per cell
         return_intermediates : bool
             If True, return intermediate steps
+        cell_indices : Optional[torch.Tensor]
+            Indices of cells in current batch (for mini-batching)
 
         Returns
         -------
@@ -92,7 +95,7 @@ class MeasurementOperator(nn.Module):
             Intermediate states
         """
         # Step 1: Capture
-        Z_captured, capture_prob = self.capture_model(Z_true)
+        Z_captured, capture_prob = self.capture_model(Z_true, cell_indices=cell_indices)
 
         # Step 2: Amplification
         Z_amplified = self.amplification_model(Z_captured)
