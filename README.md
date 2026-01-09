@@ -112,7 +112,7 @@ seurat_obj <- isc$bridge$to_seurat(adata)
 
 ## Validation
 
-See [notebooks/validation.ipynb](notebooks/validation.ipynb) for:
+See [notebooks/validation.ipynb](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/notebooks/02_validation_synthetic.ipynb) for:
 - Synthetic data benchmarks
 - Comparison with Scanpy/scVI
 - Uncertainty calibration tests
@@ -178,10 +178,10 @@ This gives us:
 
 ### Plot 1: Comparison UMAP
 
-![Comparison UMAP](../results/epoch1000/comparison_umap.png)
-![Annotated comparison UMAP](../results/epoch1000/annotated_comparison.png)
-![Uncertainity Analysis](../results/epoch1000/uncertainty_analysis.png)
-![Markers](../results/epoch1000/marker_dotplot_comparison.png)
+![Comparison UMAP](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/comparison_umap.png)
+![Annotated comparison UMAP](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/annotated_comparison.png)
+![Uncertainity Analysis](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/uncertainty_analysis.png)
+![Markers](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/marker_dotplot_comparison.png)
 
 | Standard Pipeline | Inverse Problem |
 |-------------------|-----------------|
