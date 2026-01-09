@@ -176,11 +176,17 @@ This gives us:
 
 ## Understanding the Plots
 
-### Plot 1: Comparison UMAP
+#### Plot 1: Comparison UMAP
 
 ![Comparison UMAP](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/comparison_umap.png)
+
+#### Plot 2: Annotated Comparison UMAP
 ![Annotated comparison UMAP](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/annotated_comparison.png)
+
+#### Plot 3: Uncertainity Analysis
 ![Uncertainity Analysis](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/uncertainty_analysis.png)
+
+#### Plot 3: Markers-Dot plot
 ![Markers](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/marker_dotplot_comparison.png)
 
 | Standard Pipeline | Inverse Problem |
