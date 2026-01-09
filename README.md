@@ -45,7 +45,7 @@ python scripts/run_real_data_example.py --n_epochs 1000
 ```
 ### Arguments
 
- # Model parameters
+### Model parameters
  ```bash
     '--n_latent'='Latent dimension'
     '--n_programs' ='Number of programs'
