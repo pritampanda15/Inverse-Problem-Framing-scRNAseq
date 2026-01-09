@@ -191,7 +191,7 @@ This gives us:
 
 | Standard Pipeline | Inverse Problem |
 |-------------------|-----------------|
-| 9 clusters | 15 clusters |
+| 8 clusters | 12 clusters |
 | Based on normalized counts | Based on inferred true expression |
 | No uncertainty quantification | Provides uncertainty estimates |
 
@@ -202,7 +202,7 @@ This gives us:
 
 **Right Panel - Inverse Problem:**
 - Infers the underlying true expression `Z_true`
-- Finds **more clusters (15 vs 9)** - this could mean:
+- Finds **more clusters (12 vs 8)** - this could mean:
   - Discovering subtle cell states hidden by technical noise
   - OR over-splitting due to model assumptions
 - Different cluster structure reflects working with denoised data
@@ -211,12 +211,12 @@ This gives us:
 
 ---
 
-### Plot 2: Uncertainty Analysis
+### Plot 3: Uncertainty Analysis
 
-![Uncertainty Analysis](../results/uncertainty_analysis1.png)
+![Uncertainty Analysis](https://github.com/pritampanda15/Inverse-Problem-Framing-scRNAseq/blob/main/results/epoch1000/uncertainty_analysis.png)
 
 **Left Panel - Cluster Assignments:**
-- The 15 clusters identified by the inverse problem approach
+- The 12 clusters identified by the inverse problem approach
 - Each color represents a distinct cell population
 
 **Middle Panel - Cluster Confidence:**
